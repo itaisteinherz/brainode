@@ -6,7 +6,7 @@ const input = code.replace(/\s/g, "");
         < : DONE
         > : DONE
         . : DONE
-        , : DONE
+        , : TODO
         [ : TODO
         ] : TODO
         + : DONE
