@@ -1,6 +1,6 @@
 {
   "name": "brainfuck-compiler",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A Node.js compiler for Brainfuck",
   "main": "index.js",
   "scripts": {
