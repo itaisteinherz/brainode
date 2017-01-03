@@ -16,7 +16,6 @@ const input = code.replace(/\s/g, "");
 let memory = [0];
 let pointer = 0;
 
-
 const commands = {
     '>': () => {
         if (pointer === memory.length - 1) {
