@@ -1,7 +1,7 @@
 {
   "name": "brainode",
   "version": "0.1.0",
-  "description": "A Node.js compiler for Brainfuck",
+  "description": "A Node.js interpreter for Brainfuck",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -9,7 +9,7 @@
   },
   "keywords": [
     "brainfuck",
-    "compiler"
+    "interpreter"
   ],
   "author": "Itai Steinherz <itaisteinherz@gmail.com>",
   "license": "MIT"
