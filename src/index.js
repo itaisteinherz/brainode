@@ -28,17 +28,12 @@ module.exports = class Interpreter {
             throw new Error("The input parameter is empty");
         }
 
-        const code = _cleanCode(input);
+        const code = input.replace(/[^><+-.,[\]]+/g, ""); // Remove any character that isn't a brainfuck command;
 
         while (currentIndex < code.length) {
             const command = code[currentIndex];
-
-            if (commands[command]) {
-                commands[command](currentIndex, code);
-                currentIndex++;
-            } else {
-                throw new Error(`"${command}" is not a valid command`); // TODO: Display line number and column correctly.
-            }
+            commands[command](currentIndex, code);
+            currentIndex++;
         }
     }
 
@@ -102,10 +97,3 @@ const commands = {
         }
     }
 };
-
-function _cleanCode(code) { // NOTE: RegExp to remove comments based on the solution from: http://blog.ostermiller.org/find-comment.
-    return code
-        .replace(/\/\/.*?\n/g, "") // Remove single line comments
-        .replace(/\/\*(.|[\r\n])*?\*\//g, "") // Remove multi line asterisk comments
-        .replace(/\s/g, ""); // Remove spaces
-}

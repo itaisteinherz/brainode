@@ -40,14 +40,6 @@ describe("brainode", function() {
             expect(brainode.memory).to.deep.equal([49, 0]);
             expect(brainode.pointer).to.equal(0);
         }));
-
-        it("should throw an error when an invalid command is given", function() {
-            const throwingFunction = function() {
-                brainode.run("a");
-            };
-
-            expect(throwingFunction).to.throw(Error);
-        });
     });
 
     describe("#get memory()", function() {
