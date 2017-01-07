@@ -1,6 +1,6 @@
 # brainode
 
-A Node.js interpreter for Brainfuck.
+A Node.js interpreter for [Brainfuck](https://en.wikipedia.org/wiki/Brainfuck).
 
 [![Build Status](https://travis-ci.org/itaisteinherz/brainode.svg?branch=master)](https://travis-ci.org/itaisteinherz/brainode)
 
