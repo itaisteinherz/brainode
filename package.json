@@ -2,15 +2,42 @@
   "name": "brainode",
   "version": "0.1.0",
   "description": "A Node.js interpreter for Brainfuck",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.5"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "chai": "^3.5.0",
+    "eslint": "^3.13.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-uglify": "^2.0.0",
+    "mocha": "^3.2.0",
+    "sinon": "^1.17.7",
+    "sinon-chai": "^2.8.0"
+  },
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "npm run build",
+    "build": "gulp build",
+    "lint": "eslint src/.",
+    "test": "npm run lint; mocha --harmony"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itaisteinherz/brainode.git"
   },
   "keywords": [
     "brainfuck",
     "interpreter"
   ],
   "author": "Itai Steinherz <itaisteinherz@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/itaisteinherz/brainode/issues"
+  },
+  "homepage": "https://github.com/itaisteinherz/brainode#readme"
 }
