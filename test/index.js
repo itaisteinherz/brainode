@@ -1,21 +1,18 @@
-const chai = require("chai"),
-    {
-        expect
-    } = chai,
+const chai = require("chai"), { expect } = chai,
     sinonChai = require("sinon-chai"),
     sinon = require("sinon");
 
 const fs = require("fs"),
     path = require("path");
 
-const Interpreter = require("../src/index.js");
+const Interpreter = require("../dist/index.js");
 
 chai.use(sinonChai);
 
 let brainode, code;
 
 describe("brainode", function() {
-    before("load code from brainfuck file", function() {
+    before("load test brainfuck code from basic.bf", function() {
         code = fs.readFileSync(path.join(__dirname, "basic.bf"), {
             encoding: "utf8"
         });
