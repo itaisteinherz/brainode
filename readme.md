@@ -20,4 +20,4 @@ npm install brainode
 
 ## License
 
-[MIT](https://github.com/itaisteinherz/brainode/blob/master/license)
+MIT © [Itai Steinherz](https://github.com/itaisteinherz)
