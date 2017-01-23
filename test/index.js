@@ -1,3 +1,4 @@
+"use strict";
 const chai = require("chai"), { expect } = chai,
     sinonChai = require("sinon-chai"),
     sinon = require("sinon");
