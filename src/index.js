@@ -1,3 +1,4 @@
+"use strict";
 const { question } = require("readline-sync"); // TODO: Check if I should move into an asynchronous approach.
 
 let memory,
