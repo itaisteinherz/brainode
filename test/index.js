@@ -1,10 +1,10 @@
 "use strict";
-const chai = require("chai"), { expect } = chai,
-    sinonChai = require("sinon-chai"),
-    sinon = require("sinon");
+const chai = require("chai"), { expect } = chai;
+const sinonChai = require("sinon-chai");
+const sinon = require("sinon");
 
-const fs = require("fs"),
-    path = require("path");
+const fs = require("fs");
+const path = require("path");
 
 const Interpreter = require("../dist/index.js");
 
@@ -23,7 +23,7 @@ describe("brainode", function() {
         it("should return a new interpreter object", function() {
             brainode = new Interpreter();
 
-            expect(brainode).to.be.instanceof(Interpreter);
+            expect(brainode).to.exist.and.to.be.instanceof(Interpreter);
         });
     });
 
