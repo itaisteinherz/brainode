@@ -26,6 +26,9 @@
     "lint": "eslint src/.",
     "test": "npm run lint; mocha --harmony"
   },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/itaisteinherz/brainode.git"
