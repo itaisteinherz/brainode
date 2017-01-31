@@ -15,7 +15,7 @@ brainode.run("+>++++++[<++++++++>-]<.");
 ## Installation
 
 ```bash
-npm install brainode
+npm install https://github.com/itaisteinherz/brainode.git
 ```
 
 ## License
