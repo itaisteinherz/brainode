@@ -6,7 +6,7 @@ const sinon = require("sinon");
 const fs = require("fs");
 const path = require("path");
 
-const Interpreter = require("../dist/index.js");
+const Interpreter = require("../src/index.js");
 
 chai.use(sinonChai);
 
