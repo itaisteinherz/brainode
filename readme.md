@@ -14,16 +14,16 @@ brainode.run("+>++++++[<++++++++>-]<.");
 
 ## Installation
 
-Using npm:
+Using Yarn:
 
 ```bash
-npm install https://github.com/itaisteinherz/brainode.git
+$ yarn add https://github.com/itaisteinherz/brainode.git
 ```
 
-Using yarn:
+Alternatively using npm:
 
 ```bash
-yarn add https://github.com/itaisteinherz/brainode.git
+$ npm install --save https://github.com/itaisteinherz/brainode.git
 ```
 
 ## License
