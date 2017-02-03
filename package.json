@@ -24,6 +24,9 @@
     "type": "git",
     "url": "git+https://github.com/itaisteinherz/brainode.git"
   },
+  "engines": {
+    "node": ">=6"
+  },
   "keywords": [
     "brainfuck",
     "interpreter"
