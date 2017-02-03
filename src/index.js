@@ -12,26 +12,26 @@ module.exports = class Interpreter {
         currentIndex = 0;
     }
 
-    run(input = "") {
+    run(code = "") {
         if (currentIndex !== 0) {
             memory = [0];
             pointer = 0;
             currentIndex = 0;
         }
 
-        if (typeof input !== "string") {
-            throw new TypeError("The input parameter is not a string");
+        if (typeof code !== "string") {
+            throw new TypeError("The code parameter is not a string");
         }
 
-        if (input.length === 0) {
-            throw new Error("The input parameter is empty");
+        if (code.length === 0) {
+            throw new Error("The code parameter is empty");
         }
 
-        const code = input.replace(/[^><+-.,[\]]+/g, ""); // Remove any character that isn't a brainfuck command;
+        const filteredCode = code.replace(/[^><+-.,[\]]+/g, ""); // Remove any character that isn't a brainfuck command;
 
-        while (currentIndex < code.length) {
-            const command = code[currentIndex];
-            commands[command](currentIndex, code);
+        while (currentIndex < filteredCode.length) {
+            const command = filteredCode[currentIndex];
+            commands[command](currentIndex, filteredCode);
             currentIndex++;
         }
     }

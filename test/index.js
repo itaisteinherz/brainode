@@ -27,7 +27,7 @@ describe("brainode", function() {
         });
     });
 
-    describe("#run(input = \"\")", function() {
+    describe("#run(code = \"\")", function() {
         it("should execute the given brainfuck code", sinon.test(function() {
             expect(brainode.run).to.exist.and.to.be.a("function");
 
