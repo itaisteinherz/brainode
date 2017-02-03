@@ -3,22 +3,14 @@ const chai = require("chai"), { expect } = chai;
 const sinonChai = require("sinon-chai");
 const sinon = require("sinon");
 
-const fs = require("fs");
-const path = require("path");
-
 const Interpreter = require("../src/index.js");
 
 chai.use(sinonChai);
 
-let brainode, code;
+let code = "+>++++++[<++++++++>-]<.",
+    brainode;
 
 describe("brainode", function() {
-    before("load test brainfuck code from basic.bf", function() {
-        code = fs.readFileSync(path.join(__dirname, "basic.bf"), {
-            encoding: "utf8"
-        });
-    });
-
     describe("#constructor()", function() {
         it("should return a new interpreter object", function() {
             brainode = new Interpreter();
