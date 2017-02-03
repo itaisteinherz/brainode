@@ -12,19 +12,15 @@ module.exports = class Interpreter {
         currentIndex = 0;
     }
 
-    run(code = "") {
+    run(code) {
+        if (typeof code !== "string") {
+            throw new TypeError(`Expected \`code\` to be a \`string\`, got \`${typeof code}\``);
+        }
+
         if (currentIndex !== 0) {
             memory = [0];
             pointer = 0;
             currentIndex = 0;
-        }
-
-        if (typeof code !== "string") {
-            throw new TypeError("The code parameter is not a string");
-        }
-
-        if (code.length === 0) {
-            throw new Error("The code parameter is empty");
         }
 
         const filteredCode = code.replace(/[^><+-.,[\]]+/g, ""); // Remove any character that isn't a brainfuck command;
