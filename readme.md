@@ -2,17 +2,10 @@
 
 [![Build Status](https://travis-ci.org/itaisteinherz/brainode.svg?branch=master)](https://travis-ci.org/itaisteinherz/brainode)
 
-A Node.js interpreter for [Brainfuck](https://en.wikipedia.org/wiki/Brainfuck).
+> A Node.js interpreter for [Brainfuck](https://en.wikipedia.org/wiki/Brainfuck).
 
-```js
-const Interpreter = require("brainode");
 
-const brainode = new Interpreter();
-
-brainode.run("+>++++++[<++++++++>-]<.");
-```
-
-## Installation
+## Install
 
 Using Yarn:
 
@@ -25,6 +18,46 @@ Alternatively using npm:
 ```bash
 $ npm install --save https://github.com/itaisteinherz/brainode.git
 ```
+
+
+## Usage
+
+```js
+const Interpreter = require("brainode");
+
+const brainode = new Interpreter();
+
+brainode.run("+>++++++[<++++++++>-]<.");
+//=> "1"
+```
+
+
+## API
+
+#### brainode.run(code)
+
+Executes the given brainfuck code.
+
+##### code
+
+Type: `string`
+
+The brainfuck code to execute.
+
+
+#### brainode.memory
+
+Type: `object`
+
+Returns the memory of the interpreter.
+
+
+#### brainode.pointer
+
+Type: `number`
+
+Returns the pointer of the interpreter.
+
 
 ## License
 
