@@ -4,11 +4,11 @@ const sinonChai = require("sinon-chai");
 const sinon = require("sinon");
 
 const Interpreter = require("../src/index.js");
+const code = "+>++++++[<++++++++>-]<.";
 
 chai.use(sinonChai);
 
-let code = "+>++++++[<++++++++>-]<.",
-    brainode;
+let brainode;
 
 describe("brainode", function() {
     describe("#constructor()", function() {
