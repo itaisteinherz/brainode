@@ -3,22 +3,12 @@ const chai = require("chai"), { expect } = chai;
 const sinonChai = require("sinon-chai");
 const sinon = require("sinon");
 
-const Interpreter = require("../src/index.js");
+const brainode = require("../src/index.js");
 const code = "+>++++++[<++++++++>-]<.";
 
 chai.use(sinonChai);
 
-let brainode;
-
 describe("brainode", function() {
-    describe("#constructor()", function() {
-        it("should return a new interpreter object", function() {
-            brainode = new Interpreter();
-
-            expect(brainode).to.exist.and.to.be.instanceof(Interpreter);
-        });
-    });
-
     describe("#run()", function() {
         it("should execute the given brainfuck code", sinon.test(function() {
             expect(brainode.run).to.exist.and.to.be.a("function");

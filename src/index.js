@@ -1,45 +1,29 @@
 "use strict";
 const { question } = require("readline-sync"); // TODO: Check if I should move into an asynchronous approach.
 
-let memory,
-    pointer,
-    currentIndex;
+let memory = [0];
+let pointer = 0;
+let currentIndex = 0;
 
-module.exports = class Interpreter {
-    constructor() {
+function run(code) {
+    if (typeof code !== "string") {
+        throw new TypeError(`Expected \`code\` to be a \`string\`, got \`${typeof code}\``);
+    }
+
+    if (currentIndex !== 0) {
         memory = [0];
         pointer = 0;
         currentIndex = 0;
     }
 
-    run(code) {
-        if (typeof code !== "string") {
-            throw new TypeError(`Expected \`code\` to be a \`string\`, got \`${typeof code}\``);
-        }
+    const filteredCode = code.replace(/[^><+-.,[\]]+/g, ""); // Remove any character that isn't a brainfuck command;
 
-        if (currentIndex !== 0) {
-            memory = [0];
-            pointer = 0;
-            currentIndex = 0;
-        }
-
-        const filteredCode = code.replace(/[^><+-.,[\]]+/g, ""); // Remove any character that isn't a brainfuck command;
-
-        while (currentIndex < filteredCode.length) {
-            const command = filteredCode[currentIndex];
-            commands[command](currentIndex, filteredCode);
-            currentIndex++;
-        }
+    while (currentIndex < filteredCode.length) {
+        const command = filteredCode[currentIndex];
+        commands[command](currentIndex, filteredCode);
+        currentIndex++;
     }
-
-    get memory() {
-        return memory;
-    }
-
-    get pointer() {
-        return pointer;
-    }
-};
+}
 
 const commands = {
     ">": () => {
@@ -92,3 +76,7 @@ const commands = {
         }
     }
 };
+
+module.exports.run = run;
+module.exports.memory = memory;
+module.exports.pointer = pointer;
