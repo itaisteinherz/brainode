@@ -23,9 +23,7 @@ $ npm install --save https://github.com/itaisteinherz/brainode.git
 ## Usage
 
 ```js
-const Interpreter = require("brainode");
-
-const brainode = new Interpreter();
+const brainode = require("brainode");
 
 brainode.run("+>++++++[<++++++++>-]<.");
 //=> "1"
