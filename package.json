@@ -1,6 +1,6 @@
 {
   "name": "brainode",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "A Node.js interpreter for Brainfuck",
   "main": "src/index.js",
   "directories": {
