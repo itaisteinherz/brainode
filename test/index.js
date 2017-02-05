@@ -13,10 +13,10 @@ describe("brainode", function() {
         it("should execute the given brainfuck code", sinon.test(function() {
             expect(brainode.run).to.exist.and.to.be.a("function");
 
-            this.stub(console, "log");
+            this.stub(process.stdout, "write");
             brainode.run(code);
 
-            expect(console.log).to.have.been.calledOnce.and.to.have.been.calledWith("1");
+            expect(process.stdout.write).to.have.been.calledTwice.and.calledWith("1").and.calledWith("\n");
             expect(brainode.memory).to.deep.equal([49, 0]);
             expect(brainode.pointer).to.equal(0);
         }));

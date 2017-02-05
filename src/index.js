@@ -23,6 +23,10 @@ function run(code) {
         commands[command](currentIndex, filteredCode);
         currentIndex++;
     }
+
+    if (code.indexOf(".") != -1) {
+        process.stdout.write("\n"); // This is for outputting a new line before the next console output.
+    }
 }
 
 const commands = {
@@ -50,7 +54,7 @@ const commands = {
     ".": () => {
         // Output the character signified by the cell at the pointer
         const output = String.fromCharCode(memory[pointer]);
-        console.log(output);
+        process.stdout.write(output);
     },
     ",": () => {
         // Input a character and store it in the cell at the pointer
