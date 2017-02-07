@@ -10,15 +10,12 @@
     "readline-sync": "^1.4.6"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "eslint": "^3.13.0",
-    "mocha": "^3.2.0",
+    "ava": "^0.18.1",
     "sinon": "^1.17.7",
-    "sinon-chai": "^2.8.0"
+    "xo": "^0.17.1"
   },
   "scripts": {
-    "lint": "eslint src/.",
-    "test": "npm run lint; mocha --harmony"
+    "test": "xo && ava"
   },
   "repository": {
     "type": "git",
@@ -36,5 +33,11 @@
   "bugs": {
     "url": "https://github.com/itaisteinherz/brainode/issues"
   },
-  "homepage": "https://github.com/itaisteinherz/brainode#readme"
+  "homepage": "https://github.com/itaisteinherz/brainode#readme",
+  "xo": {
+    "rules": {
+      "quotes": ["error", "double"],
+      "arrow-parens": ["error", "always"]
+    }
+  }
 }

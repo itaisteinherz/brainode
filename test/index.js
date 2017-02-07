@@ -1,42 +1,37 @@
 "use strict";
-const chai = require("chai"), { expect } = chai;
-const sinonChai = require("sinon-chai");
+const test = require("ava");
 const sinon = require("sinon");
 
 const brainode = require("../src/index.js");
+
 const code = "+>++++++[<++++++++>-]<.";
 
-chai.use(sinonChai);
+test(".run(code)", (t) => {
+	t.is(typeof brainode.run, "function");
 
-describe("brainode", function() {
-    describe("#run()", function() {
-        it("should execute the given brainfuck code", sinon.test(function() {
-            expect(brainode.run).to.exist.and.to.be.a("function");
+	sinon.stub(process.stdout, "write");
+	brainode.run(code);
 
-            this.stub(process.stdout, "write");
-            brainode.run(code);
+	t.deepEqual(brainode.memory, [49, 0]);
+	t.is(brainode.pointer, 0);
 
-            expect(process.stdout.write).to.have.been.calledTwice.and.calledWith("1").and.calledWith("\n");
-            expect(brainode.memory).to.deep.equal([49, 0]);
-            expect(brainode.pointer).to.equal(0);
-        }));
+	t.true(process.stdout.write.calledTwice);
+	t.true(process.stdout.write.calledWith("1"));
+	t.true(process.stdout.write.calledWith("\n"));
 
-        it("should throw an error if the code paramter is invalid", function() {
-            const invalidCode = () => brainode.run();
+	process.stdout.write.restore();
+});
 
-            expect(invalidCode).to.throw(TypeError, "Expected `code` to be a `string`, got `undefined`");
-        });
-    });
+test(".run(code) invalid code argument", (t) => {
+	const invalidCode = () => brainode.run();
 
-    describe("#get memory()", function() {
-        it("should return the memory of the interpreter", function() {
-            expect(brainode.memory).to.exist.and.to.be.an("array");
-        });
-    });
+	t.throws(invalidCode, TypeError, "Expected `code` to be a `string`, got `undefined`");
+});
 
-    describe("#get pointer()", function() {
-        it("should return the pointer of the interpreter", function() {
-            expect(brainode.pointer).to.exist.and.to.be.a("number");
-        });
-    });
+test(".memory", (t) => {
+	t.truthy(brainode.memory instanceof Array);
+});
+
+test(".pointer", (t) => {
+	t.is(typeof brainode.pointer, "number");
 });
