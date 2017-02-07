@@ -45,7 +45,7 @@ The brainfuck code to execute.
 
 #### brainode.memory
 
-Type: `object`
+Type: `Array`
 
 Returns the memory of the interpreter.
 
