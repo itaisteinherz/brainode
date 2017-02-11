@@ -29,7 +29,7 @@ test(".run(code) invalid code argument", (t) => {
 });
 
 test(".memory", (t) => {
-	t.truthy(brainode.memory instanceof Array);
+	t.true(brainode.memory instanceof Array);
 });
 
 test(".pointer", (t) => {
