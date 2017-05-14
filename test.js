@@ -2,7 +2,7 @@
 const test = require("ava");
 const sinon = require("sinon");
 
-const brainode = require("../src/index.js");
+const brainode = require(".");
 
 const code = "+>++++++[<++++++++>-]<.";
 
