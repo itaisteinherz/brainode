@@ -1,6 +1,6 @@
 {
 	"name": "brainode",
-	"version": "1.1.1",
+	"version": "1.2.0",
 	"description": "A Node.js interpreter for Brainfuck",
 	"license": "MIT",
 	"repository": "itaisteinherz/brainode",
