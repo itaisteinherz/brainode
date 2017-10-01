@@ -1,19 +1,17 @@
 "use strict";
-const test = require("ava");
-const sinon = require("sinon");
+import test from "ava";
+import sinon from "sinon";
 
-const brainode = require(".");
+import m from ".";
 
-const code = "+>++++++[<++++++++>-]<.";
+const code = "This +>+ is +++ some ++[<+++ unnecessary +++++> text -]<.";
 
-test(".run(code)", (t) => {
-	t.is(typeof brainode.run, "function");
-
+test("run brainfuck code", t => {
 	sinon.stub(process.stdout, "write");
-	brainode.run(code);
+	m(code);
 
-	t.deepEqual(brainode.memory, [49, 0]);
-	t.is(brainode.pointer, 0);
+	t.is(m.pointer, 0);
+	t.deepEqual(m.memory, [49, 0]);
 
 	t.true(process.stdout.write.calledTwice);
 	t.true(process.stdout.write.calledWith("1"));
@@ -22,16 +20,19 @@ test(".run(code)", (t) => {
 	process.stdout.write.restore();
 });
 
-test(".run(code) invalid code argument", (t) => {
-	const invalidCode = () => brainode.run();
-
-	t.throws(invalidCode, TypeError, "Expected `code` to be a `string`, got `undefined`");
+test("invalid code argument", t => {
+	t.throws(() => m(5), "Expected `code` to be a `string`, got `number`");
+	t.throws(() => m(true), "Expected `code` to be a `string`, got `boolean`");
 });
 
-test(".memory", (t) => {
-	t.true(Array.isArray(brainode.memory));
+test(".memory", t => {
+	t.true(Array.isArray(m.memory));
+
+	for (const cell of m.memory) {
+		t.is(typeof cell, "number");
+	}
 });
 
-test(".pointer", (t) => {
-	t.is(typeof brainode.pointer, "number");
+test(".pointer", t => {
+	t.is(typeof m.pointer, "number");
 });

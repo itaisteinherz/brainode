@@ -1,22 +1,12 @@
-# brainode
+# brainode [![Build Status](https://travis-ci.org/itaisteinherz/brainode.svg?branch=master)](https://travis-ci.org/itaisteinherz/brainode)
 
-[![Build Status](https://travis-ci.org/itaisteinherz/brainode.svg?branch=master)](https://travis-ci.org/itaisteinherz/brainode)
-
-> A Node.js interpreter for [Brainfuck](https://en.wikipedia.org/wiki/Brainfuck).
+> A Node.js interpreter for [Brainfuck](https://en.wikipedia.org/wiki/Brainfuck)
 
 
 ## Install
 
-Using Yarn:
-
-```bash
-$ yarn add https://github.com/itaisteinherz/brainode.git
 ```
-
-Alternatively using npm:
-
-```bash
-$ npm install --save https://github.com/itaisteinherz/brainode.git
+$ npm install https://github.com/itaisteinherz/brainode
 ```
 
 
@@ -45,7 +35,7 @@ The brainfuck code to execute.
 
 #### brainode.memory
 
-Type: `Array`
+Type: `Array<number>`
 
 Returns the memory of the interpreter.
 

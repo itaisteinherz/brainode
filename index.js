@@ -57,7 +57,7 @@ const commands = {
 	}
 };
 
-function run(code) {
+module.exports = code => {
 	if (typeof code !== "string") {
 		throw new TypeError(`Expected \`code\` to be a \`string\`, got \`${typeof code}\``);
 	}
@@ -79,8 +79,7 @@ function run(code) {
 	if (code.indexOf(".") !== -1) {
 		process.stdout.write("\n"); // This is for outputting a new line before the next console output.
 	}
-}
+};
 
-module.exports.run = run;
 module.exports.memory = memory;
 module.exports.pointer = pointer;
